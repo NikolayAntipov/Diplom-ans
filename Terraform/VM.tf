@@ -144,7 +144,7 @@ resource "yandex_compute_instance" "elasticsearch" {
   network_interface {
     subnet_id          = yandex_vpc_subnet.private-services.id
     security_group_ids = [yandex_vpc_security_group.private-sg.id, yandex_vpc_security_group.elasticsearch-sg.id]
-    ip_address         = "10.3.0.100"
+    ip_address         = "10.3.0.10"
   }
 
   metadata = {
@@ -178,7 +178,7 @@ resource "yandex_compute_instance" "kibana" {
   network_interface {
     subnet_id          = yandex_vpc_subnet.public-subnet.id
     security_group_ids = [yandex_vpc_security_group.private-sg.id, yandex_vpc_security_group.kibana-sg.id]
-    ip_address         = "10.4.0.100"
+    ip_address         = "10.4.0.30"
     nat                = true
 
   }
@@ -213,7 +213,7 @@ resource "yandex_compute_instance" "bastion" {
   network_interface {
     subnet_id          = yandex_vpc_subnet.public-subnet.id
     security_group_ids = [yandex_vpc_security_group.bastion-sg.id]
-    ip_address         = "10.4.0.10"
+    ip_address         = "10.4.0.100"
     nat                = true
   }
 
