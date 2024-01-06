@@ -87,6 +87,7 @@ resource "yandex_compute_instance" "nginx2" {
 
 }
 
+# install zabbix
 resource "yandex_compute_instance" "zabbix" {
   name     = "zabbix"
   hostname = "zabbix"
@@ -121,7 +122,7 @@ resource "yandex_compute_instance" "zabbix" {
 
 }
 
-
+# install elasic
 resource "yandex_compute_instance" "elasticsearch" {
   name     = "elasticsearch"
   hostname = "elasticsearch"
@@ -155,7 +156,7 @@ resource "yandex_compute_instance" "elasticsearch" {
 }
 
 
-
+# install kibana
 resource "yandex_compute_instance" "kibana" {
   name     = "kibana"
   hostname = "kibana"
@@ -190,7 +191,7 @@ resource "yandex_compute_instance" "kibana" {
 
 }
 
-
+# install bastion
 resource "yandex_compute_instance" "bastion" {
   name     = "bastion"
   hostname = "bastion"
@@ -220,6 +221,5 @@ resource "yandex_compute_instance" "bastion" {
   metadata = {
     user-data = "${file("./meta.txt")}"
   }
-
 
 }
