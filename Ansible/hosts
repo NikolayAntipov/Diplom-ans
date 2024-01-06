@@ -1,0 +1,12 @@
+[nginx]
+nginx1   ansible_host=158.160.113.59 ansible_ssh_private_key_file=/home/nik/.ssh/id_ed25519 ansible_user=ans
+nginx2   ansible_host=84.252.140.135 ansible_ssh_private_key_file=/home/nik/.ssh/id_ed25519 ansible_user=ans
+
+[zabbix]
+zabbix   ansible_host=51.250.69.1 ansible_ssh_private_key_file=/home/nik/.ssh/id_ed25519 ansible_user=ans
+
+#[elastic]
+#elastic ansible_host=<IP>
+
+#[kibana]
+#kibana ansible_host=<IP>
