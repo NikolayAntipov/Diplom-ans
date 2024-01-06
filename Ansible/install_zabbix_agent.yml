@@ -1,0 +1,22 @@
+---
+- hosts: nginx
+  become: true
+  tasks:
+  - name: Install required packages
+    apt:
+     name: ["zabbix-agent"]
+     state: present
+
+  - name: "Copy zabbix_agent.conf to remote server"
+    copy:
+      src: /home/nik/Diplom/zabbix_agent.conf
+      dest: /etc/zabbix/zabbix_agent.conf
+      owner: root
+      group: sudo
+      mode: '0644'
+
+  - name: "Start and enable Zabbix Agent service"
+    service:
+      name: zabbix-agent
+      state: started
+      enabled: yes
