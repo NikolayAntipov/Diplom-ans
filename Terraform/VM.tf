@@ -18,7 +18,7 @@ provider "yandex" {
 }
 
 
-# Создание nginx1 nginx2
+# install nginx1 nginx2
 resource "yandex_compute_instance" "nginx1" {
   name     = "nginx1"
   hostname = "nginx1"
