@@ -1,5 +1,3 @@
-
-
 # Сеть 
 
 resource "yandex_vpc_network" "network1" {
@@ -77,12 +75,12 @@ resource "yandex_alb_target_group" "tg-group" {
 
   target {
     ip_address = yandex_compute_instance.nginx1.network_interface.0.ip_address
-    subnet_id  = yandex_vpc_subnet.private-subnet-1.id
+    subnet_id  = yandex_vpc_subnet.private-nginx1.id
   }
 
   target {
     ip_address = yandex_compute_instance.nginx2.network_interface.0.ip_address
-    subnet_id  = yandex_vpc_subnet.private-subnet-2.id
+    subnet_id  = yandex_vpc_subnet.private-nginx2.id
   }
 }
 
@@ -142,7 +140,7 @@ resource "yandex_alb_load_balancer" "load-balancer" {
   allocation_policy {
     location {
       zone_id   = "ru-central1-c"
-      subnet_id = yandex_vpc_subnet.private-subnet-3.id
+      subnet_id = yandex_vpc_subnet.private-services.id
     }
   }
 
