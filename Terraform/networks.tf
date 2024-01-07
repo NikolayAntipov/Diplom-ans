@@ -177,7 +177,7 @@ resource "yandex_vpc_security_group" "private-sg" {
 
   ingress {
     protocol       = "ANY"
-    v4_cidr_blocks = ["10.1.0.0/16", "10.2.0.0/16", "10.3.0.0/16", "10.4.0.0/16"]
+    v4_cidr_blocks = ["10.1.0.0/24", "10.2.0.0/24", "10.3.0.0/24", "10.4.0.0/24"]
   }
 
   egress {
