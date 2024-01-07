@@ -48,8 +48,8 @@ resource "yandex_vpc_subnet" "private-nginx2" {
 
 # Подсеть для сервисов
 
-resource "yandex_vpc_subnet" "private-services" {
-  name = "private-services"
+resource "yandex_vpc_subnet" "private-subnet" {
+  name = "private-subnet"
 
   v4_cidr_blocks = ["10.3.0.0/24"]
   zone           = "ru-central1-c"
@@ -140,7 +140,7 @@ resource "yandex_alb_load_balancer" "load-balancer" {
   allocation_policy {
     location {
       zone_id   = "ru-central1-c"
-      subnet_id = yandex_vpc_subnet.private-services.id
+      subnet_id = yandex_vpc_subnet.private-subnet.id
     }
   }
 
