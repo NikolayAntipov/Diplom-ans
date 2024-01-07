@@ -9,7 +9,7 @@ resource "yandex_vpc_network" "network1" {
 # Настройка Nat-шлюза и статический маршрут через бастион для внутренней сети 
 
 resource "yandex_vpc_gateway" "nat_gateway" {
-  name = "test-gateway"
+  name = "nat-gateway"
   shared_egress_gateway {}
 }
 
