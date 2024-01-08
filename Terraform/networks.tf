@@ -177,11 +177,15 @@ resource "yandex_vpc_security_group" "private-sg" {
 
   ingress {
     protocol       = "ANY"
+    from_port         = 0
+    to_port           = 65535
     v4_cidr_blocks = ["10.1.0.0/24", "10.2.0.0/24", "10.3.0.0/24", "10.4.0.0/24"]
   }
 
   egress {
     protocol       = "ANY"
+    from_port         = 0
+    to_port           = 65535
     v4_cidr_blocks = ["0.0.0.0/0"]
   }
 }
@@ -231,6 +235,8 @@ resource "yandex_vpc_security_group" "bastion-sg" {
 
   egress {
     protocol       = "ANY"
+    from_port         = 0
+    to_port           = 65535
     v4_cidr_blocks = ["0.0.0.0/0"]
   }
 }
@@ -275,6 +281,8 @@ resource "yandex_vpc_security_group" "zabbix-sg" {
 
   egress {
     protocol       = "ANY"
+    from_port         = 0
+    to_port           = 65535
     v4_cidr_blocks = ["0.0.0.0/0"]
   }
 }
