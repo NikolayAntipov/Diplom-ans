@@ -1,5 +1,5 @@
 ---
-- hosts: nginx
+- hosts: nginx, bastion
   become: true
   tasks:
   - name: Install required packages
@@ -7,16 +7,22 @@
      name: ["zabbix-agent"]
      state: present
 
-  - name: "Copy zabbix_agent.conf to remote server"
+  - name: "Copy zabbix_agentd.conf to remote server"
     copy:
-      src: /home/nik/Diplom/zabbix_agent.conf
-      dest: /etc/zabbix/zabbix_agent.conf
+      src: /home/nik/Diplom/zabbix_agentd.conf
+      dest: /etc/zabbix/zabbix_agentd.conf
       owner: root
       group: sudo
       mode: '0644'
 
-  - name: "Start and enable Zabbix Agent service"
+  - name: "Start and Enable Instaled Services"
+    service:
+      enabled: yes
+      state: started
+      name: zabbix-agent
+
+  - name: restart zabbix agent
     service:
       name: zabbix-agent
-      state: started
-      enabled: yes
+      state: restarted
+
