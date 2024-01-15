@@ -17,16 +17,16 @@
 
     - name: Copy elasticsearch 7.14.1
       copy:
-        src: ./elasticsearch_files/elasticsearch-7.14.1-amd64.deb
-        dest: /home/grishenkovnn/
+        src: /home/nik/Diplom/elk/elasticsearch-7.17.9-amd64.deb
+        dest: /home/ans/
 
     - name: Install elasticsearch
       apt:
-        deb: /home/grishenkovnn/elasticsearch-7.14.1-amd64.deb
+        deb: /home/ans/elasticsearch-7.17.9-amd64.deb
 
     - name: Copy config file for elasticsearch
       copy:
-        src: ./elasticsearch_files/elasticsearch.yml
+        src: /home/nik/Diplom/elk/files/elasticsearch.yml
         dest: /etc/elasticsearch
         mode: 0660
         owner: root
