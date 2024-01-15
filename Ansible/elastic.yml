@@ -1,6 +1,6 @@
 ---
 - name: Install elasticsearch
-  hosts: elasticsearch
+  hosts: elastic
   become: yes
 
   tasks:
