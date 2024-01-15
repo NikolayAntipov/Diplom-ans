@@ -15,14 +15,11 @@
           - gnupg
         state: present
 
-    - name: Copy elasticsearch 7.14.1
-      copy:
-        src: /home/nik/Diplom/elk/elasticsearch-7.17.9-amd64.deb
-        dest: /home/ans/
-
-    - name: Install elasticsearch
-      apt:
-        deb: /home/ans/elasticsearch-7.17.9-amd64.deb
+    - name: "Add gpg-key"
+      shell: |
+        wget -qO - https://artifacts.elastic.co/GPG-KEY-elasticsearch | sudo apt-key add
+        echo "deb [trusted=yes] https://mirror.yandex.ru/mirrors/elastic/7/ stable main" | sudo tee /etc/apt/sources.list.d/elastic-7.x.list
+        apt update && apt-get install elasticsearch
 
     - name: Copy config file for elasticsearch
       copy:
@@ -42,3 +39,4 @@
       systemd:
         name: elasticsearch.service
         state: restarted
+
