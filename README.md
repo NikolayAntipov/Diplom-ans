@@ -41,7 +41,7 @@
 ![web](https://github.com/NikolayAntipov/Diplom-ans/blob/diplom-zabbix/IMG/web.jpg)
 
 ### Мониторинг
-Создана машина с zabbix и развернуты агенты на целевые хосты. Установка и настройка сервера zabbix и агентов происходит с помощью щаспуска ansuible скриптов из папки [Ansible](https://github.com/NikolayAntipov/Diplom-ans/tree/diplom-zabbix/Ansible).
+Создана машина с zabbix и развернуты агенты на целевые хосты. Установка и настройка сервера zabbix и агентов происходит с помощью заспуска ansible скриптов из папки [Ansible](https://github.com/NikolayAntipov/Diplom-ans/tree/diplom-zabbix/Ansible).
 Конфигурирование серера и агентов происходит с помощью копирования файлов конфигураций из папки [Files](https://github.com/NikolayAntipov/Diplom-ans/tree/diplom-zabbix/Ansible/files)
 
 Доступ в zabbix по ссылке http://51.250.33.207:8080/  
