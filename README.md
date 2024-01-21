@@ -59,12 +59,17 @@
 ![kibana2](https://github.com/NikolayAntipov/Diplom-ans/blob/diplom-zabbix/IMG/kibana2.JPG)
 
 ### Сеть
-Разверните один VPC. Сервера web, Elasticsearch поместите в приватные подсети. Сервера Zabbix, Kibana, application load balancer определите в публичную подсеть.
+Настроены подсети  
+![subnets](https://github.com/NikolayAntipov/Diplom-ans/blob/diplom-zabbix/IMG/subnets.jpg)
 
-Настройте [Security Groups](https://cloud.yandex.com/docs/vpc/concepts/security-groups) соответствующих сервисов на входящий трафик только к нужным портам.
+и группы безопасности  
+![bezop](https://github.com/NikolayAntipov/Diplom-ans/blob/diplom-zabbix/IMG/groups_bezop.jpg)  
 
-Настройте ВМ с публичным адресом, в которой будет открыт только один порт — ssh.  Эта вм будет реализовывать концепцию  [bastion host]( https://cloud.yandex.ru/docs/tutorials/routing/bastion) . Синоним "bastion host" - "Jump host". Подключение  ansible к серверам web и Elasticsearch через данный bastion host можно сделать с помощью  [ProxyCommand](https://docs.ansible.com/ansible/latest/network/user_guide/network_debug_troubleshooting.html#network-delegate-to-vs-proxycommand) . Допускается установка и запуск ansible непосредственно на bastion host.(Этот вариант легче в настройке)
+Доступ к хостам осуществляется по ssh через бастионный хост. Например для подлючения к Elasticsearch через бастионный хост используем следующую команду ssh -i ~/.ssh/id_ed25519 -J ans@51.250.37.117 ans@10.3.0.10  
+Файл [hosts](https://github.com/NikolayAntipov/Diplom-ans/blob/diplom-zabbix/Ansible/hosts) сконифигрурирорван для подключения и выполнения скриптов ansible через бастион
 
 ### Резервное копирование
 Создайте snapshot дисков всех ВМ. Ограничьте время жизни snaphot в неделю. Сами snaphot настройте на ежедневное копирование.
+
+![snapshots](https://github.com/NikolayAntipov/Diplom-ans/blob/diplom-zabbix/IMG/snapshots.jpg)
 
