@@ -6,11 +6,11 @@
 
 
 ### Сайт
-Созданные виртуальные машины. На скриншоте видно, что машины nginx1 и nginx2 предназначенные для web-серверов находятся в разных зонах
+Созданны виртуальные машины под инфраструктру. На скриншоте видно, что машины nginx1 и nginx2 предназначенные для web-серверов находятся в разных зонах
 
 ![vm](https://github.com/NikolayAntipov/Diplom-ans/blob/diplom-zabbix/IMG/vm.jpg)
 
-На машаинах подняты веб сервера на nginx и размещён статический файл [index.html](https://github.com/NikolayAntipov/Diplom-ans/blob/diplom-zabbix/Ansible/index.html). Проверим работоспособность двух веб-серверов командами curl -v  10.1.0.10 и curl -v  10.2.0.10
+На машинах подняты веб сервера на nginx и размещён статический файл [index.html](https://github.com/NikolayAntipov/Diplom-ans/blob/diplom-zabbix/Ansible/index.html). Проверим работоспособность двух веб-серверов командами curl -v  10.1.0.10 и curl -v  10.2.0.10
 
 ![nginx1](https://github.com/NikolayAntipov/Diplom-ans/blob/diplom-zabbix/IMG/nginx1.jpg)
 ![nginx1](https://github.com/NikolayAntipov/Diplom-ans/blob/diplom-zabbix/IMG/nginx2.jpg)
@@ -33,7 +33,7 @@
 
 ![balancer](https://github.com/NikolayAntipov/Diplom-ans/blob/diplom-zabbix/IMG/balancer.jpg)
 
-Протестируем сайт с помощью команды  curl -v 158.160.138.22
+Протестируем работу балансировщика с помощью команды  curl -v 158.160.138.22
 
 ![balancer](https://github.com/NikolayAntipov/Diplom-ans/blob/diplom-zabbix/IMG/test_load_balancer.jpg)
 
@@ -41,19 +41,19 @@
 ![web](https://github.com/NikolayAntipov/Diplom-ans/blob/diplom-zabbix/IMG/web.jpg)
 
 ### Мониторинг
-Создана машина с zabbix и развернуты агенты на целевые хосты. Настройка инфрастуктуры происходит с помощью скриптов из папки [Ansible](https://github.com/NikolayAntipov/Diplom-ans/tree/diplom-zabbix/Ansible).
-Конфигурирование происходит с помощью копирования фалов конфигураций из папки [Files](https://github.com/NikolayAntipov/Diplom-ans/tree/diplom-zabbix/Ansible/files)
+Создана машина с zabbix и развернуты агенты на целевые хосты. Установка и настройка сервера zabbix и агентов происходит с помощью щаспуска ansuible скриптов из папки [Ansible](https://github.com/NikolayAntipov/Diplom-ans/tree/diplom-zabbix/Ansible).
+Конфигурирование серера и агентов происходит с помощью копирования файлов конфигураций из папки [Files](https://github.com/NikolayAntipov/Diplom-ans/tree/diplom-zabbix/Ansible/files)
 
 Доступ в zabbix по ссылке http://51.250.33.207:8080/  
 логин: Admin  
 пароль: zabbix  
 
-Настроены дашборды. Протестррована работоспособность путём отключения nginx1, что видно на графике
+Настроены дашборды. Протестрована работоспособность путём отключения nginx1, что видно на графике
 ![zab](https://github.com/NikolayAntipov/Diplom-ans/blob/diplom-zabbix/IMG/zabbix.JPG)
 
 ### Логи
 Установка и настройка Elasticsearch, Kibana и filebeat осуществляется ангалагично zabbix (с помощью скриптов ansible и копирования конфигураций).  
-Доступ в Kibana можно получить по ссылке http://51.250.36.238:5601/
+Доступ в Kibana можно получить по адресу http://51.250.36.238:5601/
 
 ![kibana](https://github.com/NikolayAntipov/Diplom-ans/blob/diplom-zabbix/IMG/kibana.JPG)  
 ![kibana2](https://github.com/NikolayAntipov/Diplom-ans/blob/diplom-zabbix/IMG/kibana2.JPG)
