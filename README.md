@@ -65,7 +65,8 @@
 и группы безопасности  
 ![bezop](https://github.com/NikolayAntipov/Diplom-ans/blob/diplom-zabbix/IMG/groups_bezop.jpg)  
 
-Доступ к хостам осуществляется по ssh через бастионный хост. Например для подлючения к Elasticsearch через бастионный хост используем следующую команду ssh -i ~/.ssh/id_ed25519 -J ans@51.250.37.117 ans@10.3.0.10  
+Доступ к хостам осуществляется по ssh через бастионный хост.  
+Например для подлючения к Elasticsearch через бастионный хост используем следующую команду ssh -i ~/.ssh/id_ed25519 -J ans@51.250.37.117 ans@10.3.0.10  
 Файл [hosts](https://github.com/NikolayAntipov/Diplom-ans/blob/diplom-zabbix/Ansible/hosts) сконифигрурирорван для подключения и выполнения скриптов ansible через бастион
 
 ### Резервное копирование
