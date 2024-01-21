@@ -232,12 +232,6 @@ resource "yandex_vpc_security_group" "bastion-sg" {
     protocol       = "ICMP"
     v4_cidr_blocks = ["0.0.0.0/0"]
   }
- 
-  ingress {
-    protocol       = "ANY"
-    v4_cidr_blocks = ["0.0.0.0/0"]
-    port           = 10050
-  }
 
   egress {
     protocol       = "ANY"
