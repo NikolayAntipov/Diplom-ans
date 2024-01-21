@@ -55,7 +55,8 @@
 Установка и настройка Elasticsearch, Kibana и filebeat осуществляется ангалагично zabbix (с помощью скриптов ansible и копирования конфигураций).  
 Доступ в Kibana можно получить по ссылке http://51.250.36.238:5601/
 
-![kibana](https://github.com/NikolayAntipov/Diplom-ans/blob/diplom-zabbix/IMG/kibana.JPG)
+![kibana](https://github.com/NikolayAntipov/Diplom-ans/blob/diplom-zabbix/IMG/kibana.JPG)  
+![kibana2](https://github.com/NikolayAntipov/Diplom-ans/blob/diplom-zabbix/IMG/kibana2.JPG)
 
 ### Сеть
 Разверните один VPC. Сервера web, Elasticsearch поместите в приватные подсети. Сервера Zabbix, Kibana, application load balancer определите в публичную подсеть.
