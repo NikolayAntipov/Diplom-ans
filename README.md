@@ -10,18 +10,28 @@
 
 ![vm](https://github.com/NikolayAntipov/Diplom-ans/blob/diplom-zabbix/IMG/vm.jpg)
 
+На машаинах подняты веб сервера на nginx и размещён статический файл [index.html](https://github.com/NikolayAntipov/Diplom-ans/blob/diplom-zabbix/Ansible/index.html). Проверим работоспособность двух веб-серверов командами curl -v  10.1.0.10 и curl -v  10.2.0.10
 
-Создайте две ВМ в разных зонах, установите на них сервер nginx, если его там нет. ОС и содержимое ВМ должно быть идентичным, это будут наши веб-сервера.
+![nginx1](https://github.com/NikolayAntipov/Diplom-ans/blob/diplom-zabbix/IMG/nginx1.jpg)
+![nginx1](https://github.com/NikolayAntipov/Diplom-ans/blob/diplom-zabbix/IMG/nginx2.jpg)
 
-Используйте набор статичных файлов для сайта. Можно переиспользовать сайт из домашнего задания.
+Вся инфраструктура создаётся с помощью терраформ. Файлы располождены в папке [Terraform](https://github.com/NikolayAntipov/Diplom-ans/tree/diplom-zabbix/Terraform)
 
 Создайте [Target Group](https://cloud.yandex.com/docs/application-load-balancer/concepts/target-group), включите в неё две созданных ВМ.
 
+![tg](https://github.com/NikolayAntipov/Diplom-ans/blob/diplom-zabbix/IMG/target_group.jpg)
+
 Создайте [Backend Group](https://cloud.yandex.com/docs/application-load-balancer/concepts/backend-group), настройте backends на target group, ранее созданную. Настройте healthcheck на корень (/) и порт 80, протокол HTTP.
+
+![bg](https://github.com/NikolayAntipov/Diplom-ans/blob/diplom-zabbix/IMG/backand_group.jpg)
 
 Создайте [HTTP router](https://cloud.yandex.com/docs/application-load-balancer/concepts/http-router). Путь укажите — /, backend group — созданную ранее.
 
+![router](https://github.com/NikolayAntipov/Diplom-ans/blob/diplom-zabbix/IMG/http_router.jpg)
+
 Создайте [Application load balancer](https://cloud.yandex.com/en/docs/application-load-balancer/) для распределения трафика на веб-сервера, созданные ранее. Укажите HTTP router, созданный ранее, задайте listener тип auto, порт 80.
+
+![balancer]()
 
 Протестируйте сайт
 `curl -v <публичный IP балансера>:80` 
