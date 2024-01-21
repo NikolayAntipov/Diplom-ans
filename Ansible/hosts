@@ -5,14 +5,20 @@ nginx2   ansible_host=nginx2.ru-central1.internal ansible_ssh_private_key_file=/
 [zabbix]
 zabbix   ansible_host=zabbix.ru-central1.internal ansible_ssh_private_key_file=/home/nik/.ssh/id_ed25519 ansible_user=ans
 
-#[elastic]
-#elastic ansible_host=<IP>
+[elastic]
+elastic ansible_host=elasticsearch.ru-central1.internal ansible_ssh_private_key_file=/home/nik/.ssh/id_ed25519 ansible_user=ans
 
-#[kibana]
-#kibana ansible_host=<IP>
+[kibana]
+kibana ansible_host=kibana.ru-central1.internal ansible_ssh_private_key_file=/home/nik/.ssh/id_ed25519 ansible_user=ans
 
 [nginx:vars]
-ansible_ssh_common_args='-o ProxyCommand="ssh -i /home/nik/.ssh/id_ed25519 -W %h:%p -q ans@51.250.37.193"'
+ansible_ssh_common_args='-o ProxyCommand="ssh -i /home/nik/.ssh/id_ed25519 -W %h:%p -q ans@51.250.37.117"'
 
 [zabbix:vars]
-ansible_ssh_common_args='-o ProxyCommand="ssh -i /home/nik/.ssh/id_ed25519 -W %h:%p -q ans@51.250.37.193"'
+ansible_ssh_common_args='-o ProxyCommand="ssh -i /home/nik/.ssh/id_ed25519 -W %h:%p -q ans@51.250.37.117"'
+
+[elastic:vars]
+ansible_ssh_common_args='-o ProxyCommand="ssh -i /home/nik/.ssh/id_ed25519 -W %h:%p -q ans@51.250.37.117"'
+
+[kibana:vars]
+ansible_ssh_common_args='-o ProxyCommand="ssh -i /home/nik/.ssh/id_ed25519 -W %h:%p -q ans@51.250.37.117"'
