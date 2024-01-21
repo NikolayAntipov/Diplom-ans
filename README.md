@@ -43,10 +43,18 @@
 ### Мониторинг
 Создана машина с zabbix и развернуты агенты на целевые хосты. Настройка инфрастуктуры происходит с помощью скриптов из папки [Ansible](https://github.com/NikolayAntipov/Diplom-ans/tree/diplom-zabbix/Ansible).
 Конфигурирование происходит с помощью копирования фалов конфигураций из папки [Files](https://github.com/NikolayAntipov/Diplom-ans/tree/diplom-zabbix/Ansible/files)
-### Логи
-Cоздайте ВМ, разверните на ней Elasticsearch. Установите filebeat в ВМ к веб-серверам, настройте на отправку access.log, error.log nginx в Elasticsearch.
 
-Создайте ВМ, разверните на ней Kibana, сконфигурируйте соединение с Elasticsearch.
+Доступ в zabbix по ссылке http://51.250.33.207:8080/
+логин: Admin
+пароль: zabbix
+
+Настроены дашборды
+![zab](https://github.com/NikolayAntipov/Diplom-ans/blob/diplom-zabbix/IMG/zabbix.JPG)
+
+### Логи
+Установка и настройка Elasticsearch, Kibana и filebeat осуществляется ангалагично zabbix (с помощью скриптов ansible и копирования конфигураций). Доступ в Kibana можно получить по ссылке http://51.250.36.238:5601/
+
+![kibana](https://github.com/NikolayAntipov/Diplom-ans/blob/diplom-zabbix/IMG/kibana.JPG)
 
 ### Сеть
 Разверните один VPC. Сервера web, Elasticsearch поместите в приватные подсети. Сервера Zabbix, Kibana, application load balancer определите в публичную подсеть.
