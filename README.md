@@ -37,7 +37,7 @@
 
 ![balancer](https://github.com/NikolayAntipov/Diplom-ans/blob/diplom-zabbix/IMG/test_load_balancer.jpg)
 
-При доступе через веб должно отображаться сождержимое
+При доступе через веб должно отображаться содержимое
 ![web](https://github.com/NikolayAntipov/Diplom-ans/blob/diplom-zabbix/IMG/web.jpg)
 
 ### Мониторинг
