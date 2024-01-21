@@ -44,15 +44,16 @@
 Создана машина с zabbix и развернуты агенты на целевые хосты. Настройка инфрастуктуры происходит с помощью скриптов из папки [Ansible](https://github.com/NikolayAntipov/Diplom-ans/tree/diplom-zabbix/Ansible).
 Конфигурирование происходит с помощью копирования фалов конфигураций из папки [Files](https://github.com/NikolayAntipov/Diplom-ans/tree/diplom-zabbix/Ansible/files)
 
-Доступ в zabbix по ссылке http://51.250.33.207:8080/
-логин: Admin
-пароль: zabbix
+Доступ в zabbix по ссылке http://51.250.33.207:8080/  
+логин: Admin  
+пароль: zabbix  
 
-Настроены дашборды
+Настроены дашборды. Протестррована работоспособность путём отключения nginx1, что видно на графике
 ![zab](https://github.com/NikolayAntipov/Diplom-ans/blob/diplom-zabbix/IMG/zabbix.JPG)
 
 ### Логи
-Установка и настройка Elasticsearch, Kibana и filebeat осуществляется ангалагично zabbix (с помощью скриптов ansible и копирования конфигураций). Доступ в Kibana можно получить по ссылке http://51.250.36.238:5601/
+Установка и настройка Elasticsearch, Kibana и filebeat осуществляется ангалагично zabbix (с помощью скриптов ansible и копирования конфигураций).  
+Доступ в Kibana можно получить по ссылке http://51.250.36.238:5601/
 
 ![kibana](https://github.com/NikolayAntipov/Diplom-ans/blob/diplom-zabbix/IMG/kibana.JPG)
 
