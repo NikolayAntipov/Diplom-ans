@@ -53,7 +53,7 @@
 
 ### Логи
 Установка и настройка Elasticsearch, Kibana и filebeat осуществляется ангалагично zabbix (с помощью скриптов ansible и копирования конфигураций).  
-Доступ в Kibana можно получить по адресу http://51.250.36.238:5601/
+Доступ в Kibana можно получить по адресу http://51.250.36.229:5601/
 
 ![kibana](https://github.com/NikolayAntipov/Diplom-ans/blob/diplom-zabbix/IMG/kibana.JPG)  
 ![kibana2](https://github.com/NikolayAntipov/Diplom-ans/blob/diplom-zabbix/IMG/kibana2.JPG)
