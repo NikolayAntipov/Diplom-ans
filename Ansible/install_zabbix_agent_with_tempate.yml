@@ -10,7 +10,7 @@
      
   - name: "Copy Zabbix Agent config"
     template:
-      src: https://github.com/NikolayAntipov/Diplom-ans/blob/diplom-zabbix/Ansible/files/zabbix_agent.conf.j2
+      src: ./tempalates/zabbix_agent.conf.j2
       dest: /etc/zabbix/zabbix_agentd.conf
       owner: root
       group: sudo
