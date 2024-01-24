@@ -1,6 +1,5 @@
 ---
-- name: "Install Zabbix Agent"
-  hosts: elastic, kibana
+- hosts: elastic, kibana
   become: true
   
   tasks:
