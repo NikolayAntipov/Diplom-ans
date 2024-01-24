@@ -1,0 +1,42 @@
+---
+- name: Install filebeats
+  hosts: nginx
+  become: true
+
+  tasks:
+    - name: Install gnupg, apt-transport-https
+      apt:
+        name:
+          - apt-transport-https
+          - gnupg
+        state: present
+
+    - name: Copy distrib
+      copy:
+        src: /home/nik/Diplom/elk/filebeat-7.17.9-amd64.deb
+        dest: /home
+
+    - name: Copy sha
+      copy:
+        src: /home/nik/Diplom/elk/filebeat-7.17.9-amd64.deb.sha512
+        dest: /home
+
+    - name: Install filebeat
+      shell: |
+         wget -qO - https://artifacts.elastic.co/GPG-KEY-elasticsearch | sudo apt-key add
+         echo "deb [trusted=yes] https://mirror.yandex.ru/mirrors/elastic/7/ stable main" | sudo tee -a /etc/apt/sources.list.d/elastic-7.x.list
+         sudo apt-get update && sudo apt-get install filebeat
+         sudo systemctl enable filebeat
+
+    - name: Copy config file for filebeat
+      copy:
+        src: /home/nik/Diplom/elk/files/filebeat.yml
+        dest: /etc/filebeat
+        mode: 0644
+        owner: root
+        group: root
+
+    - name: Systemctl restart filebeat
+      systemd:
+        name: filebeat.service
+        state: restarted
