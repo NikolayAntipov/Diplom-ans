@@ -49,7 +49,8 @@
 пароль: zabbix  
 
 Настроены дашборды. Протестрована работоспособность путём отключения nginx1, что видно на графике
-![zab](https://github.com/NikolayAntipov/Diplom-ans/blob/diplom-zabbix/IMG/zabbix.JPG)
+![zab](https://github.com/NikolayAntipov/Diplom-ans/blob/diplom-zabbix/IMG/zabbix1.JPG)  
+![zab2](https://github.com/NikolayAntipov/Diplom-ans/blob/diplom-zabbix/IMG/zabbix2.JPG)
 
 ### Логи
 Установка и настройка Elasticsearch, Kibana и filebeat осуществляется ангалагично zabbix (с помощью скриптов ansible и копирования конфигураций).  
