@@ -2,7 +2,7 @@
 - hosts: elastic, kibana
   become: true
   vars:
-   Zabbix_server_ip: 10.4.0.20
+   zabbix_server_ip: 10.4.0.20
   
   tasks:
   - name: "Install required packages"
