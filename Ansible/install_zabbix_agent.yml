@@ -1,5 +1,5 @@
 ---
-- hosts: nginx, bastion
+- hosts: nginx
   become: true
   tasks:
   - name: Install required packages
