@@ -1,25 +1,23 @@
 ---
-- name: Install Zabbix Agent
+- name: "Install Zabbix Agent"
   hosts: elastic, kibana
   become: true
-
+  
   tasks:
-    - name: Copy Zabbix Agent config template
-      template:
-        src: templates/zabbix_agent.conf.j2
-        dest: /etc/zabbix/zabbix_agentd.conf
-        owner: zabbix
-        group: zabbix
-      notify: Restart Zabbix Agent
+  - name: "Install required packages"
+    apt:
+     name: ["zabbix-agent"]
+     state: present
+     
+  - name: "Copy Zabbix Agent config"
+    template:
+      src: templates/zabbix_agent.conf.j2
+      dest: /etc/zabbix/zabbix_agentd.conf
+      owner: root
+      group: sudo
+      mode: '0644'
 
-    - name: Install Zabbix Agent package
-      apt:
-        name: zabbix-agent
-        update_cache: yes
-        state: latest
-
-  handlers:
-    - name: Restart Zabbix Agent
-      service:
-        name: zabbix-agent
-        state: restarted
+  - name: "Restart Zabbix Agent"
+    service:
+      name: zabbix-agent
+      state: restarted
